@@ -16,3 +16,4 @@ public record Person(String fornavn, String etternavn, int fodselsaar) {
 }
 
 
+

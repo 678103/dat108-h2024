@@ -27,6 +27,19 @@ public class Eksempel5 {
 		System.out.println(etternavnene);
 		
 		//Med streams (ligner på SQL?):		
+	
+
+		people.stream()	//syntaks viser FROM people
+			
+		// WHERE age > 50
+			.filter( p -> p.age() > 50); // hvis du trenger flere filtre så kan du lage flere filtre for å filtre ut eller legge på en && 
+		
+		
+		// .map (p -> p.lastName()); = gjøre dette om til metodekall:
+				.map (Person :: lastName) // SELECT lastname 
+				.toList(); 
+				System.out.print(resultat);
+		
 	}
 }
 

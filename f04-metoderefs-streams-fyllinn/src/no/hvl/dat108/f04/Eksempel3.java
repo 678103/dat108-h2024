@@ -35,17 +35,18 @@ public class Eksempel3 {
 		Collections.sort(people, vedAaSammenligne(Person::firstName));
 		people.forEach(System.out::println);
 	}
+
 	
 	/*
 	 * Vår egen utgave av Comparator.comparing(...).
 	 * Sjekk gjerne ut API-doc til Comparator.comparing(), og se om det ligner.
 	 */
-	static ??? vedAaSammenligne(???) {
-		return ???;
+	static <T, U extends Comparator<U>> Comparator<T> vedAaSammenligne(Function<Person, String> xtractor ) { // vi ser i main-metoden (linje 26) gir comparing(p -> p.lastName())); 
+																			// dvs fra et objekt til en string. Da må vi bruke funksjon i denne klassen
+		return (a,b) -> a.xtractor.apply(a).compareTo(xtractor.apply(b));
 	}
 
 }
-
 
 
 

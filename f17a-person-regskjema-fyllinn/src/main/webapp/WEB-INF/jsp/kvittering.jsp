@@ -6,7 +6,8 @@
 </head>
 <body>
 
-	<%-- Vi fyller inn her kode for kvitteringen --%>
+	$(personen) er registrert.<br>
+	$(personen.fornavn) er fornavnet.
 	
 </body>
 </html>

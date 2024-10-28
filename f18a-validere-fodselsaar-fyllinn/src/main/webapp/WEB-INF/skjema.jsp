@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="simple.css">
-<title>Gyldig fødselsår</title>
+<title>Gyldig fÃ¸dselsÃ¥r</title>
 </head>
 <body>
+	<p style = "color: red;">${feilmelding}</p>
 	<form action="sjekkAar" method="get">
-		Fødselsår: <input type="text" name="fodselsaar"> 
+		FÃ¸dselsÃ¥r: <input type="text" name="fodselsaar"> 
 		<input type="submit" value="Send inn!">
 	</form>
 </body>

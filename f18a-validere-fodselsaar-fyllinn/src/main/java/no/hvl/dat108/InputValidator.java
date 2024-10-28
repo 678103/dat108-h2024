@@ -1,5 +1,7 @@
 package no.hvl.dat108;
 
+import java.time.LocalDate;
+
 public class InputValidator {
 
 	/*
@@ -8,11 +10,21 @@ public class InputValidator {
 	static boolean erGyldigAarstall(String s) {
 		
 		//Steg1: Ikke godta null
+		if (s == null){
+			return false;
+		}
 		
 		//Steg2: Ikke godta om det ikke kan parses
-		
+		int aar;
+		try {aar = Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			return false; 
+		}
+
 	    //Steg3: Sjekke om gyldig år
-		
-		return false;
+		int iAar = LocalDate.now().getYear();
+		return 1900 <= aar && aar < iAar;
 	}
-}
+		
+	}
+

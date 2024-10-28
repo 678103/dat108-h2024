@@ -18,8 +18,10 @@ public class SjekkAarController {
 
 		//"Guard" - Vi sjekker og håndterer feilsituasjoner først
 		boolean gyldig = InputValidator.erGyldigAarstall(fodselsaar);
-		
-		// ...
+		if(!gyldig){
+			model.addAttribute("feilmelding", "År må være mellom 1999 og 2024");
+			return "skjema"; 
+		}
 		
 		//Kommer vi hit, er alt i orden
 		model.addAttribute("gyldig", gyldig);

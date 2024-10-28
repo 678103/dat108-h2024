@@ -17,6 +17,10 @@ public class PersonController {
 	public String personskjema() {
 		return "personskjema";
 	}
+	@GetMapping("/")
+	public String start() {
+		return "personskjema";
+	}
 	
 	@GetMapping("/sjekkPerson")
 	public String sjekkPerson(Model model,

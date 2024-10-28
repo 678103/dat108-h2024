@@ -15,7 +15,7 @@ public class Main {
 				
 		//2. Sortere liste av strenger. 
 		List<String> listeAvString = Arrays.asList("Aaa", "Xxx", "Bbb", "Kkk");
-		//??? Utvalgssortering.sorter(listeAvString);
+		Utvalgssortering.sorter(listeAvString);
 		System.out.println("Sortert listeAvString: " + listeAvString);
 		
 		
@@ -24,19 +24,37 @@ public class Main {
 				new Person("Anne", "Persen", 1985),
 				new Person("Per", "Andersen", 1984),
 				new Person("Knut", "Svensen", 1990));
-		//??? Utvalgssortering.sorter(listeAvPersoner);
+			Utvalgssortering.sorter(listeAvPersoner);
+		// Utvalgssortering.sorter(listeAvPersoner);
+		// Ovenfor funket ikke først på grunn av at vi må gjøre personer comparable mot hverandre. 
+		// da går vi inn i person-klassen og endrer den slik at den er comparable. Se person-klassen
 		System.out.println("Sortert på etternavn: " + listeAvPersoner);
 		
 		
 		//4. Ønsker å sortere på fornavn. Hva gjør vi?
-		//??? NÅ BEGYNNER DET NYE!
+		//??? NÅ BEGYNNER DET NYE
+		Utvalgssortering.sorter(listeAvPersoner, (a,b), listeAvPersoner);
+		/* Sammenligner <Person> fornavn = new Sammenligner <>() {
+			@Override
+			public int sammenlign(Person a, Person b) {
+				return a.fornavn().compareTo(b.fornavn());			}
+		*/
+	};
+	
 		System.out.println("Sortert på fornavn:   " + listeAvPersoner);
 		
 		
 		//5. Ønsker å sortere på fødselsår. Hva gjør vi?
 		//??? NÅ BEGYNNER DET NYE!
+		Sammenligner <Person> faars = new Sammenligner <> () ; {
+			public  int sammenlign (Person a, Person b) {
+				return a.fodselsaar() - b.fodselsaar()	;
+			}
+		}
+		Utvalgssortering.sorter(listeAvPersoner, faars);
 		System.out.println("Sortert på fødselsår: " + listeAvPersoner);
 		
 	}
 }
+
 

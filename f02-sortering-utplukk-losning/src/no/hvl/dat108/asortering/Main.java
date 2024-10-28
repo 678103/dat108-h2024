@@ -28,19 +28,20 @@ public class Main {
 		System.out.println("Sortert på etternavn: " + listeAvPersoner);
 		
 		
-		//4. Ønsker å sortere på fornavn. Hva gjør vi?
-		//   Jo vi utvider sorter() med en ekstra parameter, og så bruker vi logikken i 
+		// 4. Ønsker å sortere på fornavn. Hva gjør vi?
+		   // Jo vi utvider sorter() med en ekstra parameter, og så bruker vi logikken i 
 		//   denne ekstra parameteren til å sammenligne, i stedet for å bruke Person.compareTo().
 		//   Den ekstra parameteren er av type Sammenligner, med metoden sammenlign(a,b)
 		//
 		//   Vi kan da opprette et Sammenligner-objekt, f.eks. slik:
-		//		Sammenligner<Person> fnsmnlgn = new Sammenligner<>() {
-		//			@Override
-		//			public int sammenlign(Person a, Person b) {
-		//				return a.fornavn().compareTo(b.fornavn());
-		//			}
-		//		};
+			/*	Sammenligner<Person> fnsmnlgn = new Sammenligner<>() {
+					@Override
+					public int sammenlign(Person a, Person b) {
+						return a.fornavn().compareTo(b.fornavn());
+					}
+				};
 		//Eller som vi så senere, som et lambda-uttrykk, slik:
+		*/ 
 		Sammenligner<Person> fnsmnlgn = (a,b) -> a.fornavn().compareTo(b.fornavn());
 		
 		Utvalgssortering.sorter(listeAvPersoner, fnsmnlgn);

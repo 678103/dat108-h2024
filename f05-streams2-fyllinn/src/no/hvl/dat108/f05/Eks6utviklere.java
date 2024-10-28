@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Eks6utviklere {
 	
@@ -19,15 +20,32 @@ public class Eks6utviklere {
 				new Utvikler("Emma", Set.of("Clojure", "Ruby", "C")),
 				new Utvikler("Lise", Set.of("Java", "C")));
 
-		System.out.println(
-				"\nEn oversikt over hvilke utviklere som kan Java:");
+		//UTFØRES I TIMEN
+		
+		System.out.println("\nEn oversikt over hvilke utviklere som kan Java:");
+		 utviklere.stream()
+				.filter(u -> u.spraak().contains("Java"))
+			 	.forEach(System.out::println);
+				
 		
 		System.out.println(
 				"\nNavnet på en utvikler som kan C#, eller \"INGEN\" om ingen kan C#:");
-
+		String navn = utviklere.stream()
+					.filter(u -> u.spraak().contains("C#")) 
+					.map(Utvikler::navn)
+					.findAny().orElse("INGEN"));
+					System.out.println(navn);
+					
 		System.out.println(
 				"\nEn sortert liste over alle programmeringsspråkene utviklerne kan:");
+		List<String> spraak = utviklere.stream()
+				.map(Utvikler::spraak)
+				.flatMap(s -> s.stream())
+				.distinct() // gjør slik at språk ikke blir repetert! 
+				.sorted() // sorterer listen
+				.toList();
 		
+  		
 		System.out.println(
 				"\nHvilket språk flest utviklere kan (finner ett av dem):");
 		//Vrien - Prøv selv ...

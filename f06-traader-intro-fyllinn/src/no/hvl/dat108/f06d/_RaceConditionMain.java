@@ -15,7 +15,23 @@ public class _RaceConditionMain {
 		 * få en mer "kontrollert" utførelse.
 		 */
 		
-		//...
+		//HER BLIR KODEN FEIL FORDI VI IKKE HAR ENDRET PÅ DEN KRITISKE SEKSJONEN
+		// SOM LIGGER I Teller()-KLASSEN. DETTE GJEDER TELLOPP OG TELLNED
+		Teller teller = new Teller();
+		Thread TellOppTraad = new TelleOppTraad(teller, 10000);
+		Thread TellNedTraad = new TelleNedTraad(teller, 10000); 
+		
+		TellOppTraad.start();
+		TellNedTraad.start();
+		
+		TellOppTraad.join();
+		TellNedTraad.join();
+		
+		System.out.println("Ferdig! Teller = " + teller.getVerdi() );
+
+		// Her ser du at svarene vi får aldri vil bli 0! Vi må derfor finne ut hvor
+		// det kritiske punktet er, og gjøre kodeblokken syncronized!!
+		
 	}
 
 }

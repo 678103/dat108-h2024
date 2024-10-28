@@ -10,6 +10,10 @@ public record Person(String fornavn, String etternavn, int fodselsaar) {
 	}
 	
 	/* Ønsker standard sortering på etternavn */
+	public int compareTo(Person other) {
+		return this.etternavn().compareTo(other.etternavn());
+	} //lagde comparable- slik at personene er comparable mot andre i main-klassen! 
 }
+
 
 

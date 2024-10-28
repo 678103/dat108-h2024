@@ -10,7 +10,7 @@ import java.util.function.Function;
  * Eksempel1 / Oppgave i timen
  * 
  * I dette eksemplet skal en liste av Personer gjøres om til en liste
- * av Stringer. Hvordan omformingen fra Person til String skal gjøres
+ * av Stringer (siden vi vil ha fornavn til personer). Hvordan omformingen fra Person til String skal gjøres
  * skal oppgis som en parameter til metoden hjelpemetoden tilListeAvString().
  * 
  * Fyll inn der det står ???
@@ -21,7 +21,12 @@ public class Eksempel1 {
 		
 		List<String> resultat = new ArrayList<>();
 		
-		??? 
+		// vi bruker en for-løkke for å få ut en liste av personer --> som vi har laget i resultat-listen
+		
+		for (Person p: liste) {
+			String fornavn = fu.apply(p);  
+			resultat.add(fornavn);
+		}
 				
 		return resultat;
 	}
@@ -29,7 +34,8 @@ public class Eksempel1 {
 	public static void main(String[] args) {
 		
 		//Vi kan prøve å lage en liste av fornavnene til personene i listen
-		List<String> fornavnene = tilListeAvString(people, ???);
+		List<String> fornavnene = tilListeAvString(people, p -> p.firstName());
 		System.out.println(fornavnene);		
-	}
-}
+	
+}}
+
